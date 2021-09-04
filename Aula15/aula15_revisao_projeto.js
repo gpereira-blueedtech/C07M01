@@ -23,6 +23,3 @@ console.log(lista);
 
 // Depois do sort, o objeto que estiver no indíce 0 é o que teve a maior pontuação.
 console.log(`O maior valor é ${lista[0].numero} de ${lista[0].nome}`);
-
-
-// Alteração 1
