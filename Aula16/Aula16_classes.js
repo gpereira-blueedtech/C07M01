@@ -66,7 +66,7 @@ class Carro {
 
 }
 
-var marca = prompt("Digite a marca do carro: ");
+// var marca = prompt("Digite a marca do carro: ");
 
 // Criando objetos:
 // Nesse momento estou criando objetos a partir da classe Carro.
@@ -74,14 +74,14 @@ var marca = prompt("Digite a marca do carro: ");
 // então terão todos os atributos e métodos estabelecidos.
 // Os valores dos atributos são passados como argumentos, e o construtor (definido na classe)
 // será o responsável por pegar cada uma dessas informações e passar para um atributo.
-let carro1 = new Carro("VW", "Fusca", 1977, "Joyce");
-let carro2 = new Carro(marca, "i9", 2021, "Manuel");
+// let carro1 = new Carro("VW", "Fusca", 1977, "Joyce");
+// let carro2 = new Carro(marca, "i9", 2021, "Manuel");
 
 // Os métodos precisam de um objeto para serem chamados
 // Após instanciar o objeto, eu chamo o método de cada um, e ele será executado 
 // a partir do objeto, e não da classe!!!
-carro1.acelerar();
-carro2.acelerar();
+// carro1.acelerar();
+// carro2.acelerar();
 
 
 
@@ -104,3 +104,68 @@ carro2.acelerar();
  Depois crie 2 objetos dessa classe e teste se os métodos
  estão todos funcionando para cada um.
  */
+
+
+ class Pessoa {
+     constructor(nome, peso, idade){
+         this.nome = nome,
+         this.peso = peso,
+         this.idade = idade
+     }
+     
+     envelhecer() {
+        this.idade += 1;
+        //  this.idade = this.idade +1; //Outro modo de fazer
+        // this.idade++ // Ooooutro modo de adicionar       
+     }
+
+     emagrecer(){
+        this.peso -= 1;
+     }
+
+     // Valor padrão:
+     // Defino um valor padrão para um argumento.
+     // Quando eu chamar o método, se eu passar um valor no argumento, ele vai usar o valor passado,
+     // Caso eu não passe nenhum valor, ele vai usar o valor definido como padrão.
+     engordar(quilos = 1){
+        this.peso += quilos;
+    }
+    
+    dados(){
+        console.log(`A pessoa ${this.nome} tem ${this.idade} anos e ${this.peso} quilos.`);
+    }
+
+    lista_dados() {
+        return [this.nome, this.idade, this.peso];
+    }
+ }
+
+ let nome = prompt("Digite o nome da pessoa: ");
+ let peso = +prompt("Digite o peso da pessoa: ");
+ let idade = +prompt("Digite a idade da pessoa: ");
+
+ let pessoa1 = new Pessoa("Gabriel", 80, 18);
+ let pessoa2 = new Pessoa("Joyce", 60, 25);
+ let pessoa3 = new Pessoa(nome,peso,idade);
+
+ pessoa1.dados();
+ pessoa2.dados();
+ pessoa3.dados();
+ console.log();
+ pessoa3.peso = +prompt("Digite o peso da pessoa 3: ")
+ pessoa3.dados();
+
+ // Quando chamo o método engordar, eu passo como argumento o quanto a pessoa deve engordar
+ // Caso eu não passe nenhum argumento, ele vai engordar 1
+ // Isso foi definido como valor padrão na hora que defini o método dentro da classe.
+  pessoa1.engordar(5);
+ 
+ pessoa1.dados();
+ pessoa2.dados();
+
+ // Passando o valor do argumento através do prompt
+ let quilos = +prompt("Digite quantos quilos vai engordar: ")
+ pessoa1.engordar(quilos);
+
+ let lista = pessoa1.lista_dados()
+ console.log(lista);
